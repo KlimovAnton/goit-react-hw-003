@@ -1,6 +1,11 @@
+import { useDispatch, useSelector } from "react-redux"
 import css from "./ContactItem.module.css"
+import { deleteContact } from "../../redux/contactsSlice"
 
-export default function ContactItem ({ task: { id, name, number }, onDelete })  {
+export default function ContactItem ({ contact: { id, name, number }})  {
+    
+    const dispatch = useDispatch()
+    const handleDelete = () => dispatch(deleteContact(id))
     return (
         <>
             <div>
@@ -12,7 +17,7 @@ export default function ContactItem ({ task: { id, name, number }, onDelete })  
                 </p>
             </div>
             <div>
-                <button className={css.button} type="button" onClick={() => onDelete(id)}>Delete</button>
+                <button className={css.button} type="button" onClick={handleDelete}>Delete</button>
             </div>
         </>
     )

@@ -47,7 +47,7 @@ export default function App() {
     <>
       <h1>Phone book</h1>
       <ContactForm validation={FeedbackSchema} initial={initialValues} onAdd={addTask}/>
-      <SearchBox value={filter} onFilter={setFilter} />
+      {/* <SearchBox value={filter} onFilter={setFilter} /> */}
       <ContactList tasks={visibleTask} onDelete={deleteTask} />
     </>
   )
