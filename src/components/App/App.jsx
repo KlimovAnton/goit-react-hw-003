@@ -1,10 +1,9 @@
 import ContactForm from "../ContactForm/ContactForm"
-import SearchBox from "./SearchBox/SearchBox"
-import ContactList from "../ContactList/ContactList"
+import SearchBox from "../SearchBox/SearchBox";
+import ContactList from "../ContactList/ContactList";
 import * as Yup from "yup";
-import contacts from "../../contacts.json"
-import { useState, useEffect } from "react"
-import { nanoid } from "nanoid"
+import contacts from "../../../contacts.json";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const FeedbackSchema = Yup.object().shape({
