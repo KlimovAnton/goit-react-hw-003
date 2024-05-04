@@ -1,20 +1,37 @@
-export const filtersSlice = (name) => {
-    return {
-        type: "filters/filtersSlice",
-        payload: name
-    }
-}
+// export const filtersSlice = (name) => {
+//     return {
+//         type: "filters/filtersSlice",
+//         payload: name
+//     }
+// }
 
-export const filtersReducer = (state = {
-        name: ""
-    }, action) => {
+import { createSlice } from "@reduxjs/toolkit";
 
-    switch(action.type) {
+// export const filtersReducer = (state = {
+//         name: ""
+//     }, action) => {
 
-        case "filters/filtersSlice":
-        return { name: action.payload }
+//     switch(action.type) {
+
+//         case "filters/filtersSlice":
+//         return { name: action.payload }
         
-        default:
-            return state;
+//         default:
+//             return state;
+//     }
+// }
+
+const slice = createSlice({
+    name: "filters",
+    initialState: {
+        name: "",
+    },
+    reducers: {
+        filtersSlice: (state, action) => {
+            state.name = action.payload
+        }
     }
-}
+})
+
+export const { filtersSlice } = slice.actions;
+export const filtersReducer = slice.reducer;
