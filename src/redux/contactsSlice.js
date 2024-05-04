@@ -15,13 +15,6 @@ export const deleteContact = (contactId) => {
     }
 }
 
-export const filterContact = (searchContacts) => {
-    return {
-        type: "contacts/filterContact",
-        payload: searchContacts,
-    }
-}
-
 export const contactsReducer = (state = {
     items: [
         {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -46,7 +39,6 @@ export const contactsReducer = (state = {
                 items: state.items.filter(contact => contact.id !== action.payload)
             }
 
-        
         default:
             return state;
     }
