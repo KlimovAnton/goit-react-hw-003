@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { devToolsEnhancer } from "@redux-devtools/extension";
 import { contactsReducer } from "./contactsSlice";
+import { filtersSlice } from "./filtersSlice";
 // const initialState = {
 //     contacts: {
 // 		items: [
@@ -10,18 +11,16 @@ import { contactsReducer } from "./contactsSlice";
 //             {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
 //           ]
 // 	},
-//         filters: {
-//                 name: ""
-//         }
+        // filters: {
+        //         name: ""
+        // }
 // }
 
 const rootReducer = combineReducers({
         contacts: contactsReducer,
-        filters: {
-                name: ""
-        }
+        filters: filtersSlice,
         })
 
 const enhancer = devToolsEnhancer()
-export const store = createStore(contactsReducer, enhancer)
+export const store = createStore(rootReducer, enhancer)
 

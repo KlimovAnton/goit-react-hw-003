@@ -24,23 +24,23 @@ export const contactsReducer = (state = {
     ]
         }, action) => {
 
-switch (action.type) {
+    switch (action.type) {
 
-    case "contacts/addContact": 
-        return { items: [
-                    ...state.items,
-                    action.payload
-                ]
-        }
-        
-    case "contacts/deleteContact":
-        return {
-            ...state, 
-            items: state.items.filter(contact => contact.id !== action.payload)
+        case "contacts/addContact": 
+            return { items: [
+                        ...state.items,
+                        action.payload
+                    ]
+            }
             
-        }
-        
-    default:
-        return state;
-}
+        case "contacts/deleteContact":
+            return {
+                ...state, 
+                items: state.items.filter(contact => contact.id !== action.payload)
+                
+            }
+            
+        default:
+            return state;
+    }
 }
