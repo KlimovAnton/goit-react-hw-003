@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import { devToolsEnhancer } from "@redux-devtools/extension";
 import { contactsReducer } from "./contactsSlice";
-import { filtersSlice } from "./filtersSlice";
+import { filtersReducer } from "./filtersSlice";
 // const initialState = {
 //     contacts: {
 // 		items: [
@@ -18,9 +18,10 @@ import { filtersSlice } from "./filtersSlice";
 
 const rootReducer = combineReducers({
         contacts: contactsReducer,
-        filters: filtersSlice,
+        filters: filtersReducer,
         })
 
 const enhancer = devToolsEnhancer()
 export const store = createStore(rootReducer, enhancer)
+
 

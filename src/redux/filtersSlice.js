@@ -10,18 +10,14 @@ export const filtersSlice = (name) => {
 }
 
 export const filtersReducer = (state = {
-    filters: {
         name: ""
-    }
-        }, action) => {
+    }, action) => {
 
     switch(action.type) {
 
         case "filters/filtersSlice":
-        return {
-            items: state.items.filter(contact => contact.name === action.payload)
-        }
-
+        return { name: action.payload }
+        
         default:
             return state;
     }
