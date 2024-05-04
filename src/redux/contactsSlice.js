@@ -1,5 +1,4 @@
 import { createAction, createReducer, createSlice } from "@reduxjs/toolkit" 
-import { nanoid } from "nanoid"
 
 // export const addContact = createAction("contacts/addContact", (username, phone) => {
 //     return {
@@ -47,7 +46,7 @@ const slice = createSlice({
             prepare: (username, phone) => {
               return {
                 payload: {
-                  id: nanoid(),
+                  id: crypto.randomUUID(),
                   name: username, 
                   number: phone,
                 },

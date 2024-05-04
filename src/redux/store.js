@@ -4,6 +4,26 @@ import { devToolsEnhancer } from "@redux-devtools/extension";
 import { contactsReducer } from "./contactsSlice";
 import { filtersReducer } from "./filtersSlice";
 
+import { 
+  persistStore, 
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+ } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const contactsPersistConfig = {
+  key: 'contactsValue',
+  storage,
+  whitelist: ["items"],
+}
+
+const pContactsReducer = persistReducer(contactsPersistConfig, contactsReducer)
+
 // const rootReducer = combineReducers({
 //   contacts: contactsReducer,
 //   filters: filtersReducer,
@@ -14,8 +34,15 @@ import { filtersReducer } from "./filtersSlice";
 
 export const store = configureStore({
   reducer: {
-    contacts: contactsReducer,
+    contacts: pContactsReducer,
     filters: filtersReducer,
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
+export const persistor = persistStore(store)
