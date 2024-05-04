@@ -17,7 +17,7 @@ import css from "./ContactList.module.css"
 
 export default function ContactList () {
     
-    const contacts = useSelector(state => state.contacts.items)
+    const contacts = useSelector(state => state.items)
 
     return (
         <ul className={css.list}>

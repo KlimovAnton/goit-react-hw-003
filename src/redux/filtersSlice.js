@@ -1,5 +1,3 @@
-export const statusFilter = Object.freeze({
-    all: "all",
-    active: "active",
-    completed: "completed",
-})
+// export const getContacts = (state) => state.contacts
+
+// export const getStatusFilter = (state) => state.contacts.status;
